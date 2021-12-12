@@ -16,7 +16,7 @@ public class ShoppingServiceTests extends UnitTest {
 	private ShoppingService shoppingService;
 	
 	@Test
-    void should_compute_price_for_standard_customer() {
+    void should_compute_price_for_standard_customer() throws Exception {
     	Item[] items = {new Item("TSHIRT", 1), new Item("JACKET", 1), new Item("DRESS", 1)};
     	Body body = new Body(items, "STANDARD_CUSTOMER");
     	double price = shoppingService.computePrice(body);
@@ -24,7 +24,7 @@ public class ShoppingServiceTests extends UnitTest {
     }
 	
 	@Test
-    void should_compute_price_for_premium_customer() {
+    void should_compute_price_for_premium_customer() throws Exception {
     	Item[] items = {new Item("TSHIRT", 2), new Item("JACKET", 2), new Item("DRESS", 1)};
     	Body body = new Body(items, "PREMIUM_CUSTOMER");
     	double price = shoppingService.computePrice(body);
@@ -32,7 +32,7 @@ public class ShoppingServiceTests extends UnitTest {
     }
 	
 	@Test
-    void should_return_price_for_platinum_customer() {
+    void should_return_price_for_platinum_customer() throws Exception {
     	Item[] items = {new Item("TSHIRT", 2), new Item("JACKET", 3), new Item("DRESS", 3)};
     	Body body = new Body(items, "PLATINUM_CUSTOMER");
     	double price = shoppingService.computePrice(body);

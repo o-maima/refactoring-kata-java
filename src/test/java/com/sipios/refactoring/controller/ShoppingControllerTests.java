@@ -30,7 +30,7 @@ class ShoppingControllerTests extends UnitTest {
     }
     
     @Test
-    void should_return_price_for_standard_customer() {
+    void should_return_price_for_standard_customer() throws Exception {
     	Item[] items = {new Item("TSHIRT", 1), new Item("JACKET", 1), new Item("DRESS", 1)};
     	Body body = new Body(items, "STANDARD_CUSTOMER");
     	Mockito.doReturn(180.0).when(shoppingService).computePrice(body);
@@ -51,7 +51,7 @@ class ShoppingControllerTests extends UnitTest {
     }
     
     @Test
-    void should_return_price_for_premium_customer() {
+    void should_return_price_for_premium_customer() throws Exception {
     	Item[] items = {new Item("TSHIRT", 2), new Item("JACKET", 2), new Item("DRESS", 1)};
     	Body body = new Body(items, "PREMIUM_CUSTOMER");
     	Mockito.doReturn(279.0).when(shoppingService).computePrice(body);
@@ -72,7 +72,7 @@ class ShoppingControllerTests extends UnitTest {
     }
     
     @Test
-    void should_return_price_for_platinum_customer() {
+    void should_return_price_for_platinum_customer() throws Exception {
     	Item[] items = {new Item("TSHIRT", 2), new Item("JACKET", 3), new Item("DRESS", 3)};
     	Body body = new Body(items, "PLATINUM_CUSTOMER");
     	Mockito.doReturn(255.0).when(shoppingService).computePrice(body);

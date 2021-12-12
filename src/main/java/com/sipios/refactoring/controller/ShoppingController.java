@@ -24,12 +24,12 @@ public class ShoppingController {
 
 	@PostMapping
 	public String getPrice(@RequestBody Body b) {
-		double p = shoppingService.computePrice(b);
 		try {
+			double p = shoppingService.computePrice(b);
 			shoppingService.isPriceOverLimit(p, b.getType());
+			return String.valueOf(p);
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
-		return String.valueOf(p);
 	}
 }
