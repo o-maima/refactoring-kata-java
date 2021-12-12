@@ -1,6 +1,8 @@
 package com.sipios.refactoring.controller;
 
 import com.sipios.refactoring.UnitTest;
+import com.sipios.refactoring.dto.Body;
+import com.sipios.refactoring.dto.Item;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
