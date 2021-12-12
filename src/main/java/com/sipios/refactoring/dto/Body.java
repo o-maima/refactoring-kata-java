@@ -5,9 +5,9 @@ public class Body {
 	private Item[] items;
 	private String type;
 
-	public Body(Item[] is, String t) {
-		this.items = is;
-		this.type = t;
+	public Body(Item[] items, String type) {
+		this.items = items;
+		this.type = type;
 	}
 
 	public Body() {

@@ -8,9 +8,9 @@ public class Item {
 	public Item() {
 	}
 
-	public Item(String type, int quantity) {
+	public Item(String type, int nb) {
 		this.type = type;
-		this.nb = quantity;
+		this.nb = nb;
 	}
 
 	public String getType() {

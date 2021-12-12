@@ -23,11 +23,11 @@ public class ShoppingController {
 	private ShoppingService shoppingService;
 
 	@PostMapping
-	public String getPrice(@RequestBody Body b) {
+	public String getPrice(@RequestBody Body shoppingRequest) {
 		try {
-			double p = shoppingService.computePrice(b);
-			shoppingService.isPriceOverLimit(p, b.getType());
-			return String.valueOf(p);
+			double price = shoppingService.computePrice(shoppingRequest);
+			shoppingService.isPriceOverLimit(price, shoppingRequest.getType());
+			return String.valueOf(price);
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
