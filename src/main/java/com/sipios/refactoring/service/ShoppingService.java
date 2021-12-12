@@ -54,15 +54,18 @@ public class ShoppingService implements IShoppingService {
 			throw new Exception("Unknown customer type");
 		}
 	}
-
+	
+	/**
+	 * Checks if price is higher than configured price for a certain customer type
+	 */
 	@Override
-	public void isPriceOverLimit(double price, String customerType) throws Exception {
+	public void checkPriceLimit(double price, String customerType) throws Exception {
 		Map<String, Double> customerPriceLimits = applicationProperties.getCustomerPriceLimits();
 		if(price > customerPriceLimits.get(customerType)) {
 			throw new Exception("Price (" + price + ") is too high for " + customerType + "");
 		}
 	}
-		
+	
 	private boolean isNotSalePeriod() {
 		Date date = new Date();
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(applicationProperties.getZoneId()));

@@ -1,5 +1,7 @@
 package com.sipios.refactoring.service;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,7 +50,7 @@ public class ShoppingServiceTests extends UnitTest {
     }
 	
 	@Test
-    void should_return_price_for_platinum_customer() throws Exception {
+    void should_compute_price_for_platinum_customer() throws Exception {
     	Item[] items = {new Item("TSHIRT", 2), new Item("JACKET", 3), new Item("DRESS", 3)};
     	Body body = new Body(items, "PLATINUM_CUSTOMER");
     	Mockito.when(applicationProperties.getCustomerDiscounts()).thenReturn(customerDiscounts);
@@ -56,6 +58,17 @@ public class ShoppingServiceTests extends UnitTest {
 		Mockito.when(applicationProperties.getZoneId()).thenReturn("Europe/Paris");
     	double price = shoppingService.computePrice(body);
     	Assertions.assertEquals(255.0, price);
+    }
+	
+	@Test
+    void should_throw_Exception_when_customer_type_is_unknown() throws Exception {
+    	Item[] items = {new Item("TSHIRT", 2), new Item("JACKET", 3), new Item("DRESS", 3)};
+    	Body body = new Body(items, "HELLO");
+    	Mockito.when(applicationProperties.getCustomerDiscounts()).thenReturn(customerDiscounts);
+    	Exception exception = assertThrows(Exception.class, () -> {
+    		shoppingService.computePrice(body);
+		});
+		Assertions.assertTrue(exception.getMessage().contains("Unknown customer type"));
     }
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

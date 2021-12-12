@@ -6,5 +6,5 @@ public interface IShoppingService {
 	
 	public double computePrice(Body shoppingRequest) throws Exception;
 	
-	public void isPriceOverLimit(double price, String customerType) throws Exception;
+	public void checkPriceLimit(double price, String customerType) throws Exception;
 }

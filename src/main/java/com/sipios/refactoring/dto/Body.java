@@ -1,5 +1,7 @@
 package com.sipios.refactoring.dto;
 
+import java.util.Arrays;
+
 public class Body {
 
 	private Item[] items;
@@ -29,4 +31,9 @@ public class Body {
 		this.type = type;
 	}
 
+	@Override
+	public String toString() {
+		return "Body [items=" + Arrays.toString(items) + ", type=" + type + "]";
+	}
+	
 }

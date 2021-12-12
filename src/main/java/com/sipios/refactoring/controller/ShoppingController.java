@@ -12,6 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.sipios.refactoring.dto.Body;
 import com.sipios.refactoring.service.ShoppingService;
+import com.sipios.refactoring.utils.JsonUtils;
 
 @RestController
 @RequestMapping("/shopping")
@@ -24,10 +25,10 @@ public class ShoppingController {
 
 	@PostMapping
 	public String getPrice(@RequestBody Body shoppingRequest) {
-		LOGGER.debug("New request: {}");
+		LOGGER.debug("New incoming request: {}", JsonUtils.objectToJsonString(shoppingRequest));
 		try {
 			double price = shoppingService.computePrice(shoppingRequest);
-			shoppingService.isPriceOverLimit(price, shoppingRequest.getType());
+			shoppingService.checkPriceLimit(price, shoppingRequest.getType());
 			return String.valueOf(price);
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());

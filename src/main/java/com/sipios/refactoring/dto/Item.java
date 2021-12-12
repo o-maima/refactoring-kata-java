@@ -28,5 +28,10 @@ public class Item {
 	public void setNb(int nb) {
 		this.nb = nb;
 	}
+
+	@Override
+	public String toString() {
+		return "Item [type=" + type + ", nb=" + nb + "]";
+	}
 	
 }

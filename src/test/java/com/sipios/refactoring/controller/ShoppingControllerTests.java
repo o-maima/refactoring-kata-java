@@ -43,7 +43,7 @@ class ShoppingControllerTests extends UnitTest {
     	Item[] items = {new Item("TSHIRT", 1), new Item("JACKET", 10), new Item("DRESS", 1)};
     	Body body = new Body(items, "STANDARD_CUSTOMER");
     	Mockito.doReturn(210.0).when(shoppingService).computePrice(body);
-    	Mockito.doThrow(new Exception("Price is too high for standard customer")).when(shoppingService).isPriceOverLimit(210.0, body.getType());
+    	Mockito.doThrow(new Exception("Price is too high for standard customer")).when(shoppingService).checkPriceLimit(210.0, body.getType());
     	ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
     		controller.getPrice(body);
 		});
@@ -64,7 +64,7 @@ class ShoppingControllerTests extends UnitTest {
     	Item[] items = {new Item("TSHIRT", 1), new Item("JACKET", 10), new Item("DRESS", 100)};
     	Body body = new Body(items, "PREMIUM_CUSTOMER");
     	Mockito.doReturn(810.0).when(shoppingService).computePrice(body);
-    	Mockito.doThrow(new Exception("Price is too high for premium customer")).when(shoppingService).isPriceOverLimit(810.0, body.getType());
+    	Mockito.doThrow(new Exception("Price is too high for premium customer")).when(shoppingService).checkPriceLimit(810.0, body.getType());
     	ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
     		controller.getPrice(body);
 		});
@@ -85,7 +85,7 @@ class ShoppingControllerTests extends UnitTest {
     	Item[] items = {new Item("TSHIRT", 1), new Item("JACKET", 100), new Item("DRESS", 100)};
     	Body body = new Body(items, "PLATINUM_CUSTOMER");
     	Mockito.doReturn(2001.0).when(shoppingService).computePrice(body);
-    	Mockito.doThrow(new Exception("Price is too high for platinum customer")).when(shoppingService).isPriceOverLimit(2001.0, body.getType());
+    	Mockito.doThrow(new Exception("Price is too high for platinum customer")).when(shoppingService).checkPriceLimit(2001.0, body.getType());
     	ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
     		controller.getPrice(body);
 		});
