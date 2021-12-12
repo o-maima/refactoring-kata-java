@@ -17,13 +17,14 @@ import com.sipios.refactoring.service.ShoppingService;
 @RequestMapping("/shopping")
 public class ShoppingController {
 
-	private Logger logger = LoggerFactory.getLogger(ShoppingController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ShoppingController.class);
 
 	@Autowired
 	private ShoppingService shoppingService;
 
 	@PostMapping
 	public String getPrice(@RequestBody Body shoppingRequest) {
+		LOGGER.debug("New request: {}");
 		try {
 			double price = shoppingService.computePrice(shoppingRequest);
 			shoppingService.isPriceOverLimit(price, shoppingRequest.getType());

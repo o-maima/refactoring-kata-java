@@ -1,1 +1,14 @@
-
+application:
+  zoneId: Europe/Paris
+  customer_discounts:
+   STANDARD_CUSTOMER: 1
+   PREMIUM_CUSTOMER: 0.9
+   PLATINUM_CUSTOMER: 0.5
+  prices:
+   TSHIRT: 30
+   DRESS: 50
+   JACKET: 100
+  item_discounts:
+   TSHIRT: 1
+   DRESS: 0.8
+   JACKET: 0.9
