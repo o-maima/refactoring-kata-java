@@ -4,5 +4,7 @@ import com.sipios.refactoring.dto.Body;
 
 public interface IShoppingService {
 	
-	public String computePrice(Body body);
+	public double computePrice(Body body);
+	
+	public void isPriceOverLimit(double p, String type) throws Exception;
 }
