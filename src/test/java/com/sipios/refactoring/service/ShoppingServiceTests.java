@@ -31,6 +31,7 @@ public class ShoppingServiceTests extends UnitTest {
     	Body body = new Body(items, "STANDARD_CUSTOMER");
     	Mockito.when(applicationProperties.getCustomerDiscounts()).thenReturn(customerDiscounts);
 		Mockito.when(applicationProperties.getPrices()).thenReturn(prices);
+		Mockito.when(applicationProperties.getZoneId()).thenReturn("Europe/Paris");
     	double price = shoppingService.computePrice(body);
     	Assertions.assertEquals(180.0, price);
     }
@@ -41,6 +42,7 @@ public class ShoppingServiceTests extends UnitTest {
     	Body body = new Body(items, "PREMIUM_CUSTOMER");
     	Mockito.when(applicationProperties.getCustomerDiscounts()).thenReturn(customerDiscounts);
 		Mockito.when(applicationProperties.getPrices()).thenReturn(prices);
+		Mockito.when(applicationProperties.getZoneId()).thenReturn("Europe/Paris");
     	double price = shoppingService.computePrice(body);
     	Assertions.assertEquals(279.0, price);
     }
@@ -51,6 +53,7 @@ public class ShoppingServiceTests extends UnitTest {
     	Body body = new Body(items, "PLATINUM_CUSTOMER");
     	Mockito.when(applicationProperties.getCustomerDiscounts()).thenReturn(customerDiscounts);
 		Mockito.when(applicationProperties.getPrices()).thenReturn(prices);
+		Mockito.when(applicationProperties.getZoneId()).thenReturn("Europe/Paris");
     	double price = shoppingService.computePrice(body);
     	Assertions.assertEquals(255.0, price);
     }

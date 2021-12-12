@@ -47,7 +47,7 @@ class ShoppingControllerTests extends UnitTest {
     	ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
     		controller.getPrice(body);
 		});
-		Assertions.assertTrue(exception.getMessage().contains("is too high for standard customer"));
+		Assertions.assertTrue(exception.getMessage().contains("is too high"));
     }
     
     @Test
@@ -68,7 +68,7 @@ class ShoppingControllerTests extends UnitTest {
     	ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
     		controller.getPrice(body);
 		});
-		Assertions.assertTrue(exception.getMessage().contains("is too high for premium customer"));
+		Assertions.assertTrue(exception.getMessage().contains("is too high"));
     }
     
     @Test
@@ -89,6 +89,6 @@ class ShoppingControllerTests extends UnitTest {
     	ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
     		controller.getPrice(body);
 		});
-		Assertions.assertTrue(exception.getMessage().contains("is too high for platinum customer"));
+		Assertions.assertTrue(exception.getMessage().contains("is too high"));
     }
 }

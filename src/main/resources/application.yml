@@ -12,3 +12,8 @@ application:
    TSHIRT: 1
    DRESS: 0.8
    JACKET: 0.9
+  customer_price_limits:
+   STANDARD_CUSTOMER: 200
+   PREMIUM_CUSTOMER: 800
+   PLATINUM_CUSTOMER: 2000
+  

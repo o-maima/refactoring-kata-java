@@ -13,6 +13,7 @@ public class ApplicationProperties {
 	private Map<String, Double> customerDiscounts;
 	private Map<String, Double> prices;
 	private Map<String, Double> itemDiscounts;
+	private Map<String, Double> customerPriceLimits;
 
 	public String getZoneId() {
 		return zoneId;
@@ -44,6 +45,14 @@ public class ApplicationProperties {
 
 	public void setItemDiscounts(Map<String, Double> itemDiscounts) {
 		this.itemDiscounts = itemDiscounts;
+	}
+
+	public Map<String, Double> getCustomerPriceLimits() {
+		return customerPriceLimits;
+	}
+
+	public void setCustomerPriceLimits(Map<String, Double> customerPriceLimits) {
+		this.customerPriceLimits = customerPriceLimits;
 	}
 
 }
